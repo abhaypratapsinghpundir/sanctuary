@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  animation: gradientMove 15s ease infinite;
+  background: linear-gradient(-45deg, #b8c0ff, #f1c0e8, #caffbf, #ffd6a5);
+  background-size: 400% 400%;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#setupArea {
+  text-align: center;
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+#colorChoices, #soundChoices {
+  margin: 10px 0;
+}
+
+.colorBtn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.colorBtn:hover {
+  transform: scale(1.2);
+}
+
+.soundBtn, #startBtn {
+  background: rgba(255,255,255,0.4);
+  border: none;
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.soundBtn.active, .soundBtn:hover, #startBtn:hover {
+  background: rgba(255,255,255,0.8);
+  transform: scale(1.05);
+}
+
+#startBtn {
+  font-size: 1.2rem;
+}
+
+#ball {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,0.7), rgba(255,255,255,0.1));
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  filter: blur(2px);
+  transition: transform 4s ease-in-out, box-shadow 4s ease-in-out;
+  z-index: 1;
+}
+#ball::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#ball.breathe::after {
+  animation: ripple 4s ease-out;
+}
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+#breathingMessage {
+  position: absolute;
+  top: 80%;
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.8;
+  z-index: 3;
+}
+
+/* subtle drifting particles */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+body::before {
+  background-image: radial-gradient(rgba(255,255,255,0.2) 3px, transparent 3px);
+  background-size: 60px 60px;
+  animation: drift 60s linear infinite;
+}
+
+body::after {
+  background-image: radial-gradient(rgba(255,255,255,0.05) 3px, transparent 3px);
+  background-size: 90px 90px;
+  animation: drift2 90s linear infinite reverse;
+}
+
+@keyframes drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 1000px; }
+}
+
+@keyframes drift2 {
+  0% { background-position: 0 0; }
+  100% { background-position: -800px -400px; }
+}

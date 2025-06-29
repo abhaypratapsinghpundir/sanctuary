@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>title</title>
+    <meta name ="veiwport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Sanctuary-Time Out</title>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    
 </head>
 <body>
+    <div id="setupArea">
+    <h1>Welcome to our Sanctuary</h1>
+
+    <p>Choose your calming color & sound to begin.</p>
+
     
+    
+    <div id="colorChoices">
+      <button class="colorBtn" data-color="#b8c0ff" style="background:#b8c0ff;"></button>
+      <button class="colorBtn" data-color="#f1c0e8" style="background:#f1c0e8;"></button>
+      <button class="colorBtn" data-color="#caffbf" style="background:#caffbf;"></button>
+      <button class="colorBtn" data-color="#ffd6a5" style="background:#ffd6a5;"></button>
+    </div>
+
+    
+    <p>Choose your vibe:</p>
+    <div id="soundChoices">
+        <button class="soundBtn" data-sound="rain">🌧️ Rain</button>
+        <button class="soundBtn" data-sound="ocean">🌊 Ocean</button>
+                <button class="soundBtn" data-sound="wind">🕊️ Wind</button>
+        <button class="soundBtn" data-sound="waterfall">🫧 WaterFall</button>
+        <button class="soundBtn" data-sound="spring">🎐 Spring</button>
+
+     </div>
+
+    
+    <button id="startBtn">Start Sanctuary</button>
+    </div>
+
+    <div id="breathingMessage" style="display: none;">Match your breathing with the ball</div>
+    <!-- where's the ball -->
+     <div id="ball"></div>
+    <script src ="js/script.js" ></script>
+
 </body>
 </html>
