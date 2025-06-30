@@ -40,6 +40,7 @@ soundBtns.forEach(btn => {
     // maybe highlight selected button
     soundBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    particles.setVibe(selectedSound);
   });
 });
 
@@ -49,6 +50,24 @@ startBtn.addEventListener('click',()=>{
         alert("Pick a color and sound first, silly");
         return;
     }
+//     switch(selectedSound){
+//   case 'rain': 
+//     ball.style.background = "radial-gradient(circle, #a3cfff, rgba(255,255,255,0.1))";
+//     break;
+//   case 'ocean': 
+//     ball.style.background = "radial-gradient(circle, #66d9e8, rgba(255,255,255,0.1))";
+//     break;
+//   case 'wind':
+//     ball.style.background = "radial-gradient(circle, #bde0fe, rgba(255,255,255,0.1))";
+//     break;
+//   case 'waterfall':
+//     ball.style.background = "radial-gradient(circle, #cddafd, rgba(255,255,255,0.1))";
+//     break;
+//   case 'spring':
+//     ball.style.background = "radial-gradient(circle, #f1c0e8, rgba(255,255,255,0.1))";
+//     break;
+// }
+
     const audio = new Audio(`assests/sounds/${selectedSound}.mp3`);
     audio.loop = true;
     audio.play();
